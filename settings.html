@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="assets/Profile_Default.png" alt="Admin Avatar" class="avatar" id="avatarDisplay">
+                <div class="username" id="usernameDisplay">username</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form.html">Forms</a></li>
+                <li><a href="application-management.html">Application Management</a></li>
+                <li><a href="map.html">Data Mapping</a></li>
+                <li><a href="settings.html" class="active">Settings</a></li>
+                <li><a href="support.html">Support & Help Center</a></li>
+            </ul>
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo" class="sidebar-logo">
+            </div>
+        </nav>
+        <main>
+            <section id="settings">
+                <h1>Settings</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" value="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="1234@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">Upload Profile Picture:</label>
+                        <input type="file" id="avatar" name="avatar" accept="image/*">
+                    </div>
+                    <button type="submit">Save Changes</button>
+                    <button type="button" id="logoutButton" class="action-button">Log Out</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>Changes updated successfully!</p>
+            <button id="modalCloseButton">Okay</button>
+        </div>
+    </div>
+
+    <!-- Log Out Confirmation Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to log out?</p>
+            <button id="confirmLogoutButton">Yes</button>
+            <button id="cancelLogoutButton">No</button>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

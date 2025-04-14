@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=width=device-width, initial-scale=1.0">
+    <title>Application Management</title>
+    <link rel="stylesheet" href="application-management.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="assets/Profile_Default.png" alt="Admin Avatar" class="avatar" id="avatarDisplay">
+                <div class="username" id="usernameDisplay"></div>
+            </div>
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo" class="sidebar-logo">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form.html">Forms</a></li>
+                <li><a href="application-management.html" class="active">Application Management</a></li>
+                <li><a href="map.html">Data Mapping</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="support.html">Support & Help Center</a></li>
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <input type="text" id="search-bar" placeholder="Search for applicants" class="search-bar">
+                <div class="filter-container">
+                    <button class="filter-btn">
+                        <img src="assets/filter_icon.png" alt="Filter Icon">
+                    </button>
+                    <div class="filter-options" id="filter-options">
+                        <label for="filter-program">Program:</label>
+                        <select id="filter-program">
+                            <option value="">All Programs</option>
+                            <option value="DOST Undergraduate">DOST Undergraduate</option>
+                            <option value="DOST JLSS">DOST JLSS</option>
+                        </select>
+                        <label for="filter-date">Submission Date:</label>
+                        <input type="date" id="filter-date">
+                        <button id="apply-filter-btn">Apply Filter</button>
+                    </div>
+                </div>
+            </header>
+            <section class="tabs">
+                <button class="tab active" data-tab="pending">Pending</button>
+                <button class="tab" data-tab="in-review">In Review</button>
+                <button class="tab" data-tab="approved">Approved</button>
+                <button class="tab" data-tab="rejected">Rejected</button>
+            </section>
+            <section class="table-container">
+                <table class="applicant-table">
+                    <thead>
+                        <tr>
+                            <th>ID #</th>
+                            <th>Name</th>
+                            <th>Program</th>
+                            <th>Submission Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Content for the active tab will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Applicant Details</h2>
+            </div>
+            <div class="profile-picture">
+                <span>JR</span> <!-- Placeholder initials for the profile picture -->
+            </div>
+            <form id="profile-form" class="modal-form">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name">
+
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name">
+
+                <label for="middle-name">Middle Name:</label>
+                <input type="text" id="middle-name" name="middle-name">
+
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="program">Program:</label>
+                <input type="text" id="program" name="program">
+
+                <label for="submission-date">Submission Date:</label>
+                <input type="date" id="submission-date" name="submission-date">
+            </form>
+            <div class="button-container">
+                <button id="cancel-btn">Cancel</button>
+                <button id="save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="application-management.js"></script>
+</body>
+</html>

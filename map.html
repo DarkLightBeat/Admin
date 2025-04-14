@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mapping</title>
+    <link rel="stylesheet" href="map.css">
+    <!-- Include Mapbox GL JS for interactive maps -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="assets/Profile_Default.png" alt="Profile Avatar" class="avatar" id="avatarDisplay">
+                <div class="username" id="usernameDisplay">username</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form.html">Forms</a></li>
+                <li><a href="application-management.html">Application Management</a></li>
+                <li><a href="map.html" class="active">Data Mapping</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="support.html">Support & Help Center</a></li>
+            </ul>
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo" class="sidebar-logo">
+            </div>
+        </nav>
+        <main>
+            <section id="data-mapping">
+                <h1>Data Mapping</h1>
+                <div id="map"></div>
+                <div class="filters">
+                    <label for="year">Select Year:</label>
+                    <select id="year">
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                    </select>
+                    <label for="data-type">Data Type:</label>
+                    <select id="data-type">
+                        <option value="population-density">Population Density</option>
+                        <option value="income-level">Income Level</option>
+                        <option value="education-level">Education Level</option>
+                    </select>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Include Mapbox GL JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <!-- Load map.js only on the map page -->
+    <script src="map.js"></script>
+
+    <!-- Load settings.js only on the settings page -->
+    <script src="settings.js"></script>
+</body>
+</html>

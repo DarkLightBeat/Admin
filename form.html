@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="assets/Profile_Default.png" alt="Admin Avatar" class="avatar" id="avatarDisplay">
+                <div class="username" id="usernameDisplay">username</div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form.html" class="active">Forms</a></li>
+                <li><a href="application-management.html">Application Management</a></li>
+                <li><a href="map.html">Data Mapping</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="support.html">Support & Help Center</a></li>
+            </ul>
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo" class="sidebar-logo">
+            </div>
+        </nav>
+        <main>
+            <section id="forms">
+                <h1>Apply for a Program</h1>
+                <form id="dynamic-form">
+                    <div class="form-group">
+                        <label for="program-select">Select a Program</label>
+                        <select id="program-select">
+                            <option value="">-- Select a Program --</option>
+                            <option value="slp">DSWD Sustainable Livelihood Program</option>
+                            <option value="lingap">DSWD Lingap sa Masa Program</option>
+                            <option value="medical">DSWD Medical Assistance to Indigent Patients</option>
+                        </select>
+                    </div>
+                    <div id="requirements-container">
+                        <!-- Requirements will be dynamically added here -->
+                    </div>
+                    <button type="submit" id="submit-form-btn" disabled>Submit Application</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="form.js"></script>
+</body>
+</html>

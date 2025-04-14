@@ -1,0 +1,315 @@
+/* Base Styles for All Pages */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f2ff; /* Soft blue background for a relaxing feel */
+    color: #003366; /* Deep blue for text */
+}
+
+.container {
+    display: flex;
+    width: 100%; /* Ensure the container spans the full width */
+    height: 100vh; /* Full height of the viewport */
+}
+
+nav {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #003366; /* Deep blue for a professional government style */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff; /* White border for contrast */
+}
+
+.username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    background-color: #00509e; /* Lighter blue for hover and active states */
+}
+
+.logo-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: auto;
+}
+
+main {
+    flex: 1; /* Allow the main content to take up the remaining space */
+    margin-left: 290px; /* Offset by the width of the fixed sidebar */
+    padding: 20px;
+    background-color: #ffffff; /* White background for content area */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+    overflow-y: auto;
+    width: calc(100% - 250px); /* Dynamically calculate width to exclude the sidebar */
+}
+
+h1, h2, h3 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #00509e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003366;
+}
+
+#settings {
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#settings h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #003366;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"],
+button#logoutButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2d6a4f; /* Same color as Save Changes */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-bottom: 10px; /* Add space between buttons */
+}
+
+button[type="submit"]:hover,
+button#logoutButton:hover {
+    background-color: #1b4d3e; /* Hover effect */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #D0EFFB;
+    margin: 5% auto;
+    padding: 20px;
+    border: 0.5px solid #45B0E2; /* Add border color */
+    width: 80%;
+    max-width: 500px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5); /* Add shadow to the modal box */
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ABD4CB;
+    color: white;
+    border: 1px solid black; /* Add black border */
+    border-radius: 60%; /* Set a 60% corner radius */
+    cursor: pointer;
+    margin: 10px 5px;
+    width: 100px; /* Set a fixed width for consistency */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow to the buttons */
+}
+
+.modal-content button:hover {
+    background-color: #1b4d3e;
+}
+
+/* Log Out Modal Styles */
+#logoutModal {
+    visibility: hidden; /* Ensure it's not visible */
+    opacity: 0; /* Fully transparent */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0s, opacity 0.3s ease; /* Smooth transition */
+}
+
+#logoutModal.show {
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fully opaque */
+}
+
+#logoutModal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#logoutModal .modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoutModal .modal-content button#confirmLogoutButton {
+    background-color: #d9534f;
+    color: white;
+}
+
+#logoutModal .modal-content button#cancelLogoutButton {
+    background-color: #5bc0de;
+    color: white;
+}
+
+/* Success Modal Styles */
+#successModal {
+    visibility: hidden; /* Ensure it's not visible */
+    opacity: 0; /* Fully transparent */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0s, opacity 0.3s ease; /* Smooth transition */
+}
+
+#successModal.show {
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fully opaque */
+}
+
+#successModal .modal-content {
+    background-color: #D0EFFB;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#successModal .modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5bc0de;
+    color: white;
+}
