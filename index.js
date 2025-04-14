@@ -289,7 +289,7 @@ window.addEventListener('storage', function (event) {
     }
 });
 
-const socket = new WebSocket('ws://your-server-url');
+const socket = new WebSocket('https://darklightbeat.github.io/Admin/index.html');
 
 socket.onmessage = function (event) {
     const data = JSON.parse(event.data);
