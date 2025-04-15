@@ -176,12 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the profile picture to Profile_Default.png for all files
     const avatarDisplay = document.getElementById('avatarDisplay');
     const defaultUsername = 'username';
-    const defaultAvatar = '../assets/Profile_Default.png';
+    const defaultAvatar = 'assets/Profile_Default.png'; // Ensure this path is correct
     const savedUsername = localStorage.getItem('username') || defaultUsername;
     const savedAvatar = localStorage.getItem('avatar') || defaultAvatar;
     usernameDisplay.textContent = savedUsername;
     welcomeUsername.textContent = savedUsername;
     avatarDisplay.src = savedAvatar;
+    avatarDisplay.onerror = () => {
+        avatarDisplay.src = defaultAvatar; // Fallback to default avatar
+    };
 });
 
 document.addEventListener('DOMContentLoaded', function () {

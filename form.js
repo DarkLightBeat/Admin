@@ -1095,7 +1095,7 @@ const updateProfile = () => {
   const avatarDisplay = document.getElementById("avatarDisplay");
   const usernameDisplay = document.getElementById("usernameDisplay");
   const defaultUsername = "username";
-  const defaultAvatar = "/assets/Profile_Default.png";
+  const defaultAvatar = 'assets/Profile_Default.png'; // Ensure this path is correct
 
   const savedUsername = localStorage.getItem("username") || defaultUsername;
   const savedAvatar = localStorage.getItem("avatar") || defaultAvatar;
@@ -1106,7 +1106,7 @@ const updateProfile = () => {
   if (avatarDisplay) {
     avatarDisplay.src = savedAvatar;
     avatarDisplay.onerror = () => {
-      avatarDisplay.src = defaultAvatar;
+      avatarDisplay.src = defaultAvatar; // Fallback to default avatar
     };
   }
 };
