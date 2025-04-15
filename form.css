@@ -75,7 +75,7 @@ nav ul li a.active {
 
 .logo-container {
   position: absolute;
-  bottom: 40px; /* Adjust this value to move the logo up */
+  bottom: 20px; /* Adjust this value to move the logo up */
   width: 100%;
   text-align: center;
 }
