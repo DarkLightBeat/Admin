@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const usernameDisplay = document.getElementById('usernameDisplay');
         const welcomeUsername = document.getElementById('welcomeUsername');
         const defaultUsername = 'username';
-        const defaultAvatar = 'assets/Profile_Default.png';
+        const defaultAvatar = '/assets/Profile_Default.png';
 
         const savedUsername = localStorage.getItem('username') || defaultUsername;
         const savedAvatar = localStorage.getItem('avatar') || defaultAvatar;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const usernameDisplay = document.getElementById('usernameDisplay');
     const welcomeUsername = document.getElementById('welcomeUsername');
     const defaultUsername = 'username';
-    const defaultAvatar = 'assets/Profile_Default.png';
+    const defaultAvatar = '/assets/Profile_Default.png';
 
     // Load saved username and avatar from localStorage
     updateProfile();

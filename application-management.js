@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const usernameDisplay = document.getElementById('usernameDisplay');
     const welcomeUsername = document.getElementById('welcomeUsername');
     const defaultUsername = 'username';
-    const defaultAvatar = '../assets/Profile_Default.png';
+    const defaultAvatar = '/assets/Profile_Default.png';
 
     // Function to update the profile
     function updateProfile() {
