@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Access token for Mapbox (You should use your own token)
-    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'; // Replace with your actual token
 
     var map = new mapboxgl.Map({
         container: 'map',

@@ -14,7 +14,7 @@ body {
 }
 
 nav {
-    width: 250px; /* Fixed width for the sidebar */
+    width: 210px; /* Fixed width for the sidebar */
     background-color: #003366; /* Deep blue for a professional government style */
     color: white;
     display: flex;
@@ -76,24 +76,27 @@ nav ul li.active a {
 
 .logo-container {
     position: absolute;
-    bottom: 20px;
+    bottom: 40px; /* Adjust this value to move the logo up */
     width: 100%;
     text-align: center;
 }
 
 .sidebar-logo {
-    width: 80px;
+    width: 100px;
     height: auto;
 }
 
 main {
     flex: 1; /* Allow the main content to take up the remaining space */
-    margin-left: 290px; /* Offset by the width of the fixed sidebar */
+    margin-left: 250px; /* Offset by the width of the fixed sidebar */
+    margin-top: 60px;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     background-color: #ffffff; /* White background for content area */
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
     overflow-y: auto;
-    width: calc(100% - 250px); /* Dynamically calculate width to exclude the sidebar */
 }
 
 h1, h2, h3 {
@@ -312,4 +315,36 @@ button#logoutButton:hover {
     cursor: pointer;
     background-color: #5bc0de;
     color: white;
+}
+
+
+/* Add this to all relevant CSS files */
+.app-header {
+    background-color:  #111827; /* Black background */
+    color: white; /* White text */
+    padding: 10px 30px; /* Add padding for spacing */
+    position: fixed; /* Keep the header fixed at the top */
+    top: 0;
+    left: 250px;
+    height: 42px;
+    width: 80%; /* Full width of the viewport */
+    z-index: 1000; /* Ensure it stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.header-title {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 450px;
 }

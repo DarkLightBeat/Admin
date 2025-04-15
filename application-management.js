@@ -11,32 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Data for each tab
     const data = {
         pending: [
-            { id: '92483', name: 'Jefferson Ruiz Cabalsa', program: 'DOST Undergraduate', date: '2025-02-09' },
-            { id: '43891', name: 'Aerron Sander Gumarao', program: 'DOST Undergraduate', date: '2025-02-10' },
-            { id: '12345', name: 'Maria Clara Santos', program: 'DOST Undergraduate', date: '2025-02-11' },
-            { id: '67890', name: 'Carlos Miguel Reyes', program: 'DOST Undergraduate', date: '2025-02-12' },
-            { id: '54321', name: 'Anna Mae Cruz', program: 'DOST Undergraduate', date: '2025-02-13' }
         ],
         'in-review': [
-            { id: '11111', name: 'Jane Doe', program: 'DOST Undergraduate', date: '2025-02-15' },
-            { id: '22222', name: 'John Appleseed', program: 'DOST Undergraduate', date: '2025-02-16' },
-            { id: '33333', name: 'Emily Rose', program: 'DOST Undergraduate', date: '2025-02-17' },
-            { id: '44444', name: 'Michael Tan', program: 'DOST Undergraduate', date: '2025-02-18' },
-            { id: '55555', name: 'Sophia Lim', program: 'DOST Undergraduate', date: '2025-02-19' }
         ],
         approved: [
-            { id: '66666', name: 'John Smith', program: 'DOST JLSS', date: '2025-02-20' },
-            { id: '77777', name: 'Alice Brown', program: 'DOST JLSS', date: '2025-02-21' },
-            { id: '88888', name: 'Chris Evans', program: 'DOST JLSS', date: '2025-02-22' },
-            { id: '99999', name: 'Natalie Portman', program: 'DOST JLSS', date: '2025-02-23' },
-            { id: '10101', name: 'Robert Downey', program: 'DOST JLSS', date: '2025-02-24' }
         ],
         rejected: [
-            { id: '20202', name: 'Mary Johnson', program: 'DOST Undergraduate', date: '2025-02-25' },
-            { id: '30303', name: 'Peter Parker', program: 'DOST Undergraduate', date: '2025-02-26' },
-            { id: '40404', name: 'Bruce Wayne', program: 'DOST Undergraduate', date: '2025-02-27' },
-            { id: '50505', name: 'Clark Kent', program: 'DOST Undergraduate', date: '2025-02-28' },
-            { id: '60606', name: 'Diana Prince', program: 'DOST Undergraduate', date: '2025-03-01' }
         ]
     };
 

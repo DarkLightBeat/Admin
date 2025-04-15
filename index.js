@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const usernameDisplay = document.getElementById('usernameDisplay');
         const welcomeUsername = document.getElementById('welcomeUsername');
         const defaultUsername = 'username';
-        const defaultAvatar = '/assets/Profile_Default.png';
+        const defaultAvatar = './assets/Profile_Default.png'; // Ensure relative path
 
         const savedUsername = localStorage.getItem('username') || defaultUsername;
         const savedAvatar = localStorage.getItem('avatar') || defaultAvatar;
@@ -48,26 +48,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initialize Yearly Progress Chart as a Pie Chart
-    const ctx1 = document.getElementById('yearlyProgressChart').getContext('2d');
-    new Chart(ctx1, {
-        type: 'pie',
-        data: {
-            labels: ['Completed', 'In Progress', 'Pending'],
-            datasets: [{
-                data: [60, 30, 10],
-                backgroundColor: ['#4caf50', '#ff9800', '#f44336']
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top'
+    // Ensure all chart elements exist before initializing
+    if (document.getElementById('yearlyProgressChart')) {
+        const ctx1 = document.getElementById('yearlyProgressChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Completed', 'In Progress', 'Pending'],
+                datasets: [{
+                    data: [60, 30, 10],
+                    backgroundColor: ['#4caf50', '#ff9800', '#f44336']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
     const avatarDisplay = document.getElementById('avatarDisplay');
     const usernameDisplay = document.getElementById('usernameDisplay');

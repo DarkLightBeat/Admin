@@ -1613,3 +1613,17 @@ const showAddAttachmentDialog = (programId) => {
     };
   }
 };
+
+document.getElementById('create-organization-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('organization-name').value.trim();
+    const website = document.getElementById('organization-website').value.trim();
+
+    if (name && website) {
+        addOrganization({ id: Date.now().toString(), name, website });
+        alert('Organization created successfully!');
+        loadOrganizationsList();
+    } else {
+        alert('Please fill out all fields.');
+    }
+});

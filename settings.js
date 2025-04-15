@@ -73,12 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     confirmLogoutButton.addEventListener('click', function () {
-        // Reset username and avatar to defaults
-        localStorage.setItem('username', defaultUsername);
-        localStorage.setItem('avatar', defaultAvatar);
-
-        // Redirect to the login page
-        window.location.href = '../Login/Login.html'; // Adjust the path as needed
+        localStorage.clear(); // Clear all localStorage data
+        window.location.href = './login.html'; // Adjust path as needed
     });
 
     cancelLogoutButton.addEventListener('click', function () {
