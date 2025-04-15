@@ -1,51 +1,676 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms</title>
-    <link rel="stylesheet" href="form.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Management</title>
+  <link rel="stylesheet" href="form.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <div class="profile">
-                <img src="Admin/assets/Profile_Default.png" alt="Admin Avatar" class="avatar" id="avatarDisplay">
-                <div class="username" id="usernameDisplay">username</div>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="form.html" class="active">Forms</a></li>
-                <li><a href="application-management.html">Application Management</a></li>
-                <li><a href="map.html">Data Mapping</a></li>
-                <li><a href="settings.html">Settings</a></li>
-                <li><a href="support.html">Support & Help Center</a></li>
-            </ul>
-            <div class="logo-container">
-                <img src="assets/logo.png" alt="Logo" class="sidebar-logo">
-            </div>
-        </nav>
-        <main>
-            <section id="forms">
-                <h1>Apply for a Program</h1>
-                <form id="dynamic-form">
-                    <div class="form-group">
-                        <label for="program-select">Select a Program</label>
-                        <select id="program-select">
-                            <option value="">-- Select a Program --</option>
-                            <option value="slp">DSWD Sustainable Livelihood Program</option>
-                            <option value="lingap">DSWD Lingap sa Masa Program</option>
-                            <option value="medical">DSWD Medical Assistance to Indigent Patients</option>
-                        </select>
-                    </div>
-                    <div id="requirements-container">
-                        <!-- Requirements will be dynamically added here -->
-                    </div>
-                    <button type="submit" id="submit-form-btn" disabled>Submit Application</button>
-                </form>
-            </section>
+  <div class="container">
+    <nav>
+      <div class="profile">
+        <img src="/assets/Profile_Default.png" alt="Admin Avatar" class="avatar" id="avatarDisplay">
+        <div class="username" id="usernameDisplay">username</div>
+      </div>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/form.html" class="active">Forms</a></li>
+        <li><a href="/application-management.html">Application Management</a></li>
+        <li><a href="/map.html">Data Mapping</a></li>
+        <li><a href="/settings.html">Settings</a></li>
+        <li><a href="/support.html">Support & Help Center</a></li>
+      </ul>
+      <div class="logo-container">
+        <img src="/assets/logo.png" alt="Logo" class="sidebar-logo">
+      </div>
+    </nav>
+    <div class="app-container">
+      <!-- Developer Options Page (Home) -->
+      <section id="developer-options-page" class="page">
+        <header class="app-header">
+          <div class="header-content">
+            <h1 class="header-title">Organization Management</h1>
+          </div>
+        </header>
+        <main class="main-content">
+          <h2 class="section-title">Create New Organization</h2>
+          <div class="card">
+            <form id="create-organization-form">
+              <div class="form-group">
+                <label for="org-name">Organization Name</label>
+                <input type="text" id="org-name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="logo-url">Logo URL</label>
+                <input type="text" id="logo-url" name="logoUrl" required>
+              </div>
+              <div class="form-group">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" required>
+              </div>
+              <button type="submit" class="button button-primary button-full">
+                <span class="button-text">Create Organization</span>
+                <span class="button-loader hidden"></span>
+              </button>
+            </form>
+          </div>
+          <h2 class="section-title">Existing Organizations</h2>
+          <div id="organizations-list" class="organizations-list">
+            <!-- Organizations will be inserted here by JavaScript -->
+          </div>
         </main>
+      </section>
+
+      <!-- Organization Page -->
+      <section id="organization-page" class="page hidden">
+        <header class="app-header dark">
+          <div class="header-content">
+            <h1 id="organization-name" class="header-title">Organization Name</h1>
+            <div class="tabs">
+              <button class="tab-button active" data-tab="programs">Programs</button>
+              <button class="tab-button" data-tab="news">News</button>
+              <button class="tab-button" data-tab="map">Map Data</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="organization-header">
+          <div id="organization-logo" class="organization-logo">
+            <!-- Logo will be inserted here by JavaScript -->
+          </div>
+          <div class="organization-info">
+            <h2 id="organization-title">Organization Name</h2>
+            <a id="organization-website" href="#" target="_blank" class="organization-website" rel="noreferrer">website.com</a>
+          </div>
+        </div>
+
+        <main class="main-content">
+          <div id="programs-tab" class="tab-content active">
+            <div id="programs-list" class="programs-list">
+              <!-- Programs will be inserted here by JavaScript -->
+            </div>
+
+            <button id="add-program-button" class="floating-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div id="news-tab" class="tab-content">
+            <div class="empty-state">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H5v-2h9v2zm0-4H5v-2h9v2zm0-4H5V7h9v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"></path>
+              </svg>
+              <p class="empty-title">No news articles found</p>
+              <p class="empty-subtitle">Tap the + button to add a news article</p>
+            </div>
+          </div>
+
+          <div id="map-tab" class="tab-content">
+            <div class="empty-state">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <p class="empty-title">No map data found</p>
+              <p class="empty-subtitle">Tap the + button to add map data</p>
+            </div>
+          </div>
+        </main>
+      </section>
+
+      <!-- Program Editor Page -->
+      <section id="program-editor-page" class="page hidden">
+        <header class="app-header light">
+          <div class="header-content">
+            <button id="back-button-program" class="icon-button dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <h1 id="editor-title" class="header-title dark">Program Editor</h1>
+            <button id="save-button" class="icon-button dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="tabs">
+            <button class="tab-button active" data-tab="basic">Basic</button>
+            <button class="tab-button" data-tab="details">Details</button>
+            <button class="tab-button" data-tab="form">Form</button>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <!-- Basic Tab -->
+          <div id="basic-tab" class="tab-content active">
+            <div class="tab-scroll-container">
+              <!-- Program Preview Card -->
+              <div id="program-preview-card" class="program-card">
+                <div class="program-card-header">
+                  <div id="program-logo" class="program-logo">
+                    <!-- Logo will be inserted here by JavaScript -->
+                  </div>
+                  <div class="program-info">
+                    <h3 id="preview-program-name">Program Name</h3>
+                    <p id="preview-organization-name">Organization Name</p>
+                  </div>
+                </div>
+                <div class="program-card-footer">
+                  <div class="program-meta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Due: </span>
+                    <strong id="preview-deadline">No deadline set</strong>
+                    <span id="preview-status" class="status-badge">Closed</span>
+                  </div>
+                  <span id="preview-category" class="category-badge">No category</span>
+                </div>
+              </div>
+
+              <!-- Program Details Form -->
+              <div class="card">
+                <div class="form-group">
+                  <label for="edit-program-name">Program Name</label>
+                  <input type="text" id="edit-program-name" name="name">
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-category">Category</label>
+                  <select id="edit-category" name="category">
+                    <option value="Educational">Educational</option>
+                    <option value="Social">Social</option>
+                    <option value="Healthcare">Healthcare</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-deadline">Deadline</label>
+                  <div class="input-with-icon">
+                    <input type="date" id="edit-deadline" name="deadline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-color">Program Color</label>
+                  <div id="edit-color" class="color-preview">
+                    <span>Tap to change color</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program Status Button -->
+            <div class="footer-button-container">
+              <button id="toggle-status-button" class="button button-danger button-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span id="toggle-status-text">Close Program</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Details Tab -->
+          <div id="details-tab" class="tab-content">
+            <div class="tab-scroll-container">
+              <button id="preview-details-button" class="button button-dark button-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Preview Saved Details
+              </button>
+
+              <div class="info-card">
+                <h3>Details Builder</h3>
+                <p>Create and customize program detail sections. These sections will be shown to applicants when they view this program.</p>
+              </div>
+
+              <div id="detail-sections-container">
+                <!-- Detail sections will be inserted here by JavaScript -->
+              </div>
+
+              <div class="center-button">
+                <button id="add-detail-section-button" class="button button-outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Add Detail Section
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Tab -->
+          <div id="form-tab" class="tab-content">
+            <div class="tab-scroll-container">
+              <button id="preview-form-button" class="button button-dark button-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Preview Saved Form
+              </button>
+
+              <div class="info-card">
+                <h3>Form Builder</h3>
+                <p>Create and customize application form fields. These fields will be shown to applicants when they apply for this program.</p>
+              </div>
+
+              <div id="form-fields-container">
+                <!-- Form fields will be inserted here by JavaScript -->
+              </div>
+
+              <div class="center-button">
+                <button id="add-form-field-button" class="button button-outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Add Form Field
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+
+      <!-- Preview Details Page -->
+      <section id="preview-details-page" class="page hidden">
+        <header class="app-header light">
+          <div class="header-content">
+            <button id="back-button-preview-details" class="icon-button dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <h1 class="header-title dark">Program Preview</h1>
+            <div class="spacer"></div>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <!-- Program Preview Card -->
+          <div id="preview-details-card" class="program-card">
+            <div class="program-card-header">
+              <div id="preview-details-logo" class="program-logo">
+                <!-- Logo will be inserted here by JavaScript -->
+              </div>
+              <div class="program-info">
+                <h3 id="preview-details-program-name">Program Name</h3>
+                <p id="preview-details-organization-name">Organization Name</p>
+              </div>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Due: </span>
+                <strong id="preview-details-deadline">No deadline set</strong>
+              </div>
+              <span id="preview-details-category" class="category-badge">No category</span>
+            </div>
+          </div>
+
+          <!-- Detail Sections Card -->
+          <div class="card">
+            <div id="preview-detail-sections-container">
+              <!-- Detail sections will be inserted here by JavaScript -->
+              <div class="empty-state hidden">
+                <p>No details available for this program yet.</p>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Apply Button (Disabled in Preview) -->
+        <div class="footer-button-container">
+          <button class="button button-primary button-full disabled">Apply Now</button>
+        </div>
+      </section>
+
+      <!-- Preview Form Page -->
+      <section id="preview-form-page" class="page hidden">
+        <header class="app-header light">
+          <div class="header-content">
+            <button id="back-button-preview-form" class="icon-button dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <h1 class="header-title dark">Form Preview</h1>
+            <div class="spacer"></div>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <!-- Program Preview Card -->
+          <div id="preview-form-card" class="program-card">
+            <div class="program-card-header">
+              <div id="preview-form-logo" class="program-logo">
+                <!-- Logo will be inserted here by JavaScript -->
+              </div>
+              <div class="program-info">
+                <h3 id="preview-form-program-name">Program Name</h3>
+                <p id="preview-form-organization-name">Organization Name</p>
+              </div>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-meta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Due: </span>
+                <strong id="preview-form-deadline">No deadline set</strong>
+              </div>
+              <span id="preview-form-category" class="category-badge">No category</span>
+            </div>
+          </div>
+
+          <!-- Form Fields Card -->
+          <div class="card">
+            <div id="preview-form-fields-container">
+              <!-- Form fields will be inserted here by JavaScript -->
+              <div class="empty-state hidden">
+                <p>No form fields defined for this program yet.</p>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Submit Button (Disabled in Preview) -->
+        <div class="footer-button-container">
+          <button class="button button-primary button-full disabled">Submit Application</button>
+        </div>
+      </section>
+
+      <!-- Dialogs -->
+      <!-- Delete Organization Dialog -->
+      <div id="delete-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Delete Organization</h2>
+          </div>
+          <div class="dialog-content">
+            <p>This will permanently delete this organization and ALL associated data:</p>
+            <ul>
+              <li>All programs</li>
+              <li>All uploaded files</li>
+              <li>All configuration data</li>
+            </ul>
+            <p>This action cannot be undone. Are you sure?</p>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-delete" class="button button-secondary">Cancel</button>
+            <button id="confirm-delete" class="button button-danger">Delete Everything</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Program Dialog -->
+      <div id="add-program-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Add New Program</h2>
+          </div>
+          <div class="dialog-content">
+            <form id="add-program-form">
+              <div class="form-group">
+                <label for="program-name">Program Name</label>
+                <input type="text" id="program-name" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                  <option value="Educational">Educational</option>
+                  <option value="Social">Social</option>
+                  <option value="Healthcare">Healthcare</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="deadline">Deadline</label>
+                <input type="date" id="deadline" name="deadline" required>
+              </div>
+
+              <div class="form-group">
+                <label>Select Color</label>
+                <div class="color-picker" id="color-picker">
+                  <!-- Colors will be inserted here by JavaScript -->
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-add-program" class="button button-secondary">Cancel</button>
+            <button id="confirm-add-program" class="button button-primary">Add Program</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete Program Dialog -->
+      <div id="delete-program-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Delete Program</h2>
+          </div>
+          <div class="dialog-content">
+            <p>Are you sure you want to delete this program? This will also remove it from all users' applications.</p>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-delete-program" class="button button-secondary">Cancel</button>
+            <button id="confirm-delete-program" class="button button-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Detail Section Dialog -->
+      <div id="add-detail-section-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Add Detail Section</h2>
+          </div>
+          <div class="dialog-content">
+            <div class="form-group">
+              <label for="detail-section-type">Select Section Type</label>
+              <select id="detail-section-type">
+                <option value="paragraph">Paragraph</option>
+                <option value="list">List</option>
+                <option value="attachment">Attachment</option>
+              </select>
+            </div>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-add-detail-section" class="button button-secondary">Cancel</button>
+            <button id="confirm-add-detail-section" class="button button-primary">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Detail Section Dialog -->
+      <div id="edit-detail-section-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Edit Detail Section</h2>
+          </div>
+          <div class="dialog-content">
+            <div class="form-group">
+              <label for="edit-section-type">Section Type</label>
+              <select id="edit-section-type" disabled>
+                <option value="paragraph">Paragraph</option>
+                <option value="list">List</option>
+                <option value="attachment">Attachment</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="edit-section-label">Section Label</label>
+              <input type="text" id="edit-section-label">
+            </div>
+            <div id="edit-section-content-container" class="form-group">
+              <label for="edit-section-content">Content</label>
+              <textarea id="edit-section-content" rows="5"></textarea>
+            </div>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-edit-detail-section" class="button button-secondary">Cancel</button>
+            <button id="confirm-edit-detail-section" class="button button-primary">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Form Field Dialog -->
+      <div id="add-form-field-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Select Field Type</h2>
+          </div>
+          <div class="dialog-content">
+            <div class="form-group">
+              <label for="form-field-type">Field Type</label>
+              <select id="form-field-type">
+                <option value="short_answer">Short Answer</option>
+                <option value="paragraph">Paragraph</option>
+                <option value="multiple_choice">Multiple Choice</option>
+                <option value="checkbox">Checkbox</option>
+                <option value="date">Date</option>
+                <option value="attachment">Attachment</option>
+              </select>
+            </div>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-add-form-field" class="button button-secondary">Cancel</button>
+            <button id="confirm-add-form-field" class="button button-primary">Add Field</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Form Field Dialog -->
+      <div id="edit-form-field-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Edit Form Field</h2>
+          </div>
+          <div class="dialog-content">
+            <div class="form-group">
+              <label for="edit-field-type">Field Type</label>
+              <select id="edit-field-type" disabled>
+                <option value="short_answer">Short Answer</option>
+                <option value="paragraph">Paragraph</option>
+                <option value="multiple_choice">Multiple Choice</option>
+                <option value="checkbox">Checkbox</option>
+                <option value="date">Date</option>
+                <option value="attachment">Attachment</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="edit-field-label">Field Label</label>
+              <input type="text" id="edit-field-label">
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="edit-field-required">
+              <label for="edit-field-required">Required field</label>
+            </div>
+            <div id="edit-field-options-container" class="form-group">
+              <label>Options</label>
+              <div id="edit-field-options-list">
+                <!-- Options will be added here dynamically -->
+              </div>
+              <button type="button" id="add-field-option" class="add-item-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Option
+              </button>
+            </div>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-edit-form-field" class="button button-secondary">Cancel</button>
+            <button id="confirm-edit-form-field" class="button button-primary">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toggle Status Dialog -->
+      <div id="toggle-status-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2 id="toggle-status-dialog-title">Close Program</h2>
+          </div>
+          <div class="dialog-content">
+            <p id="toggle-status-dialog-message">Are you sure you want to close this program? Users will no longer be able to apply.</p>
+          </div>
+          <div class="dialog-footer">
+            <button id="cancel-toggle-status" class="button button-secondary">Cancel</button>
+            <button id="confirm-toggle-status" class="button button-danger">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Picker Dialog -->
+      <div id="color-picker-dialog" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Select Color</h2>
+          </div>
+          <div class="dialog-content">
+            <div class="color-picker" id="color-picker-grid">
+              <!-- Colors will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organization Created Modal -->
+      <div id="organization-created-modal" class="dialog-overlay hidden">
+        <div class="dialog">
+          <div class="dialog-header">
+            <h2>Organization Created</h2>
+          </div>
+          <div class="dialog-content">
+            <p>The organization has been successfully created!</p>
+          </div>
+          <div class="dialog-footer">
+            <button id="close-organization-modal" class="button button-primary">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Overlay -->
+      <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p id="loading-message">Loading...</p>
+      </div>
     </div>
-    <script src="form.js"></script>
+  </div>
+  <script src="form.js"></script>
 </body>
 </html>
