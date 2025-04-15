@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const usernameDisplay = document.getElementById('usernameDisplay');
         const welcomeUsername = document.getElementById('welcomeUsername');
         const defaultUsername = 'username';
-        const defaultAvatar = '/assets/Profile_Default.png'; // Ensure this path is correct
+        const defaultAvatar = './assets/Profile_Default.png'; // Ensure this path is correct
 
         const savedUsername = localStorage.getItem('username') || defaultUsername;
         const savedAvatar = localStorage.getItem('avatar') || defaultAvatar;

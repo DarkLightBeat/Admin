@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the profile picture to Profile_Default.png for all files
     const avatarDisplay = document.getElementById('avatarDisplay');
     const defaultUsername = 'username';
-    const defaultAvatar = 'assets/Profile_Default.png'; // Ensure this path is correct
+    const defaultAvatar = './assets/Profile_Default.png'; // Ensure this path is correct
     const savedUsername = localStorage.getItem('username') || defaultUsername;
     const savedAvatar = localStorage.getItem('avatar') || defaultAvatar;
     usernameDisplay.textContent = savedUsername;
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const usernameDisplay = document.getElementById('usernameDisplay');
     const welcomeUsername = document.getElementById('welcomeUsername');
     const defaultUsername = 'username';
-    const defaultAvatar = '/assets/Profile_Default.png';
+    const defaultAvatar = './assets/Profile_Default.png';
 
     // Function to update the profile
     function updateProfile() {
